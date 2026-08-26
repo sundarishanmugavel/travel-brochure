@@ -1794,13 +1794,6 @@ body {
 
         .blocky-main-title {
             font-size: 21px !important;
-            white-space: normal !important;
-            margin-bottom: 2px !important;
-        }
-
-        .title-line-1 {
-            display: block !important;
-            font-size: 21px !important;
             white-space: nowrap !important;
             color: #d97706 !important;
             font-weight: 850 !important;
@@ -1808,29 +1801,26 @@ body {
             margin-bottom: 2px !important;
         }
 
-        .title-line-2 {
+        .sub-title-row {
+            flex-direction: column-reverse !important;
+            align-items: flex-start !important;
+            gap: 3px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .blocky-sub-title {
             display: block !important;
             font-size: 21px !important;
             color: #d97706 !important;
             font-weight: 850 !important;
             line-height: 1 !important;
-            margin-bottom: 4px !important;
-        }
-
-        .sub-title-row {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            margin-bottom: 5px !important;
+            margin-bottom: 2px !important;
         }
 
         .blocky-solid-banner {
             font-size: 6.5px !important;
             padding: 2px 4px !important;
             white-space: nowrap !important;
-        }
-
-        .blocky-sub-title {
-            display: none !important;
         }
 
         /* Ganesha icon removed on mobile */

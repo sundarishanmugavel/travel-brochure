@@ -11,6 +11,13 @@ body {
     background-color: #ffffff;
 }
 
+.banner-section {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .banner-container {
     width: 100%;
     aspect-ratio: 1977 / 780;
@@ -229,11 +236,11 @@ body {
 /* Horizontal Floating Bar */
 .horizontal-floating-bar {
     position: absolute;
-    bottom: 30px;
-    right: 40px;
+    bottom: 25px;
+    right: 25px;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 10px;
     z-index: 10;
 }
 
@@ -243,11 +250,11 @@ body {
     align-items: center;
     background-color: #ffffff;
     border-radius: 50px;
-    height: 50px;
-    padding: 5px;
+    height: 46px;
+    padding: 4px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 50px;
+    max-width: 46px;
     animation: expandPill 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
@@ -261,13 +268,13 @@ body {
 
 @keyframes expandPill {
     0% {
-        max-width: 50px;
-        padding-right: 5px;
+        max-width: 46px;
+        padding-right: 4px;
     }
 
     100% {
-        max-width: 200px;
-        padding-right: 25px;
+        max-width: 165px;
+        padding-right: 16px;
     }
 }
 
@@ -281,12 +288,14 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid #e2e8f0;
+    overflow: hidden;
 }
 
 .custom-img-icon {
-    width: 32px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    border-radius: 50%;
 }
 
 .floating-label {
@@ -1216,301 +1225,742 @@ body {
 /* ========================================= */
 /* TABLET RESPONSIVE TWEAKS (1024px screens) */
 /* ========================================= */
+/* TABLET RESPONSIVE TWEAKS (769px - 1200px) */
+/* ========================================= */
 @media (max-width: 1200px) {
     .banner-container {
         aspect-ratio: 1977 / 780;
         min-height: auto;
     }
+
     .banner-left {
-        max-width: 380px; 
+        max-width: 380px;
         padding: 15px 30px;
-        justify-content: flex-start; /* Push content to top */
+        justify-content: flex-start;
+        /* Push content to top */
     }
-    
+
     /* Astroved logo upper and smaller */
     .logo-area {
-        position: relative; /* Remove absolute positioning so it doesn't overlap titles */
+        position: relative;
+        /* Remove absolute positioning so it doesn't overlap titles */
         top: 0;
         left: 0;
         margin-bottom: 10px;
     }
-    .logo-icon { width: 35px; height: 35px; }
-    .logo-text h1 { font-size: 24px; }
-    .logo-text p { font-size: 9px; }
-    
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo-text h1 {
+        font-size: 24px;
+    }
+
+    .logo-text p {
+        font-size: 9px;
+    }
+
     /* Titles smaller */
-    .blocky-main-title { font-size: 60px; line-height: 0.9; margin-top: 0; margin-bottom: -2px; }
-    .blocky-sub-title { font-size: 36px; }
-    .blocky-solid-banner { font-size: 10px; padding: 3px 8px; }
-    .sub-title-row { margin-bottom: 10px; gap: 10px; align-items: center; }
-    
+    .blocky-main-title {
+        font-size: 60px;
+        line-height: 0.9;
+        margin-top: 0;
+        margin-bottom: -2px;
+    }
+
+    .blocky-sub-title {
+        font-size: 36px;
+    }
+
+    .blocky-solid-banner {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+
+    .sub-title-row {
+        margin-bottom: 10px;
+        gap: 10px;
+        align-items: center;
+    }
+
     /* Ganapathi Box smaller */
-    .blessing-box { padding: 15px 20px; }
-    .blessing-chant { font-size: 14px; margin-bottom: 5px; }
-    .blessing-text { font-size: 10px; }
-    .ganapathi-icon { width: 70px; }
-    
-    /* Horizontal floating bar smaller and on right side */
+    .blessing-box {
+        padding: 15px 20px;
+    }
+
+    .blessing-chant {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .blessing-text {
+        font-size: 10px;
+    }
+
+    .ganapathi-icon {
+        width: 70px;
+    }
+
+    /* Horizontal floating bar smaller and fixed fit on right side */
     .horizontal-floating-bar {
+        position: absolute;
         bottom: 20px;
         right: 20px;
         left: auto;
+        top: auto;
         transform: none;
         width: auto;
         justify-content: flex-end;
         flex-wrap: nowrap;
-        gap: 6px; /* Less margin/gap */
+        gap: 6px;
+        margin: 0;
+        padding: 0;
     }
-    
+
     .floating-item {
+        position: relative;
         height: 38px;
         padding: 4px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         animation-name: expandPillTablet;
+        animation-duration: 1.2s;
+        animation-fill-mode: forwards;
         transform: none;
+        max-width: 38px;
+        overflow: hidden;
     }
+
     .floating-icon {
         width: 30px;
         height: 30px;
     }
+
     .floating-label {
         font-size: 9px;
+        margin-left: 6px;
+        opacity: 0;
+        animation-name: fadeText;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
     }
+
     @keyframes expandPillTablet {
-        0% { max-width: 38px; padding-right: 4px; }
-        100% { max-width: 140px; padding-right: 15px; }
+        0% {
+            max-width: 38px;
+            padding-right: 4px;
+        }
+
+        100% {
+            max-width: 140px;
+            padding-right: 15px;
+        }
     }
 
     /* Divine Destinations Grid 4x3 centered */
     .destinations-cards-wrapper {
         justify-content: center !important;
     }
+
     .new-dest-card {
         flex: 0 0 calc(25% - 12px) !important;
         min-width: 0 !important;
     }
-    
+
     /* Shrink temple images on right side of itinerary cards */
     .temple-graphic {
         width: 75px;
     }
-}
 
-/* ========================================= */
-/* MOBILE RESPONSIVE TWEAKS                  */
-/* ========================================= */
-@media (max-width: 768px) {
-    /* Banner Adjustment */
-    .banner-container {
-        aspect-ratio: auto;
-        min-height: 280px;
-        padding-bottom: 45px;
-    }
-    .banner-left {
-        max-width: 320px; 
-        padding: 10px 20px;
-    }
-    /* Astroved logo upper and smaller */
-    .logo-icon { width: 25px; height: 25px; }
-    .logo-text h1 { font-size: 18px; }
-    .logo-text p { font-size: 7px; }
-    
-    /* Titles smaller & single line */
-    .blocky-main-title { font-size: 32px; white-space: nowrap; margin-bottom: 2px; }
-    .sub-title-row { flex-direction: column-reverse; align-items: flex-start; margin-bottom: 5px; gap: 4px; }
-    .blocky-sub-title { font-size: 24px; }
-    .blocky-solid-banner { font-size: 8px; padding: 2px 6px; }
-    
-    /* Ganapathi Box smaller */
-    .blessing-box { padding: 5px 10px; margin-top: 2px; max-width: 250px; }
-    .blessing-chant { font-size: 9px; margin-bottom: 2px; }
-    .blessing-text { font-size: 7px; line-height: 1.2; }
-    .ganapathi-icon { width: 35px; }
-    
-    /* Horizontal floating bar smaller and on right side */
-    .horizontal-floating-bar {
-        bottom: 10px;
-        right: 5px;
-        left: auto;
-        transform: none;
-        width: auto;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-        gap: 2px; 
-    }
-    .floating-item {
-        height: 24px;
-        padding: 2px;
-        animation-name: expandPillMobile;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transform: none;
-        display: flex;
-        align-items: center;
-    }
-    .floating-icon {
-        width: 18px;
-        height: 18px;
-        padding: 2px;
-    }
-    .floating-label {
-        font-size: 7px;
-        padding-right: 5px;
-    }
-    @keyframes expandPillMobile {
-        0% { max-width: 24px; padding-right: 2px; }
-        100% { max-width: 110px; padding-right: 8px; }
-    }
-    
-    /* Highlights wrap on mobile */
-    .highlights-grid {
-        flex-wrap: nowrap;
-        gap: 5px;
-        overflow-x: auto;
-    }
-    .highlight-item {
-        flex: 1 1 24%;
-        border: none !important;
-        padding-bottom: 5px;
-    }
-    .highlight-item img { width: 35px; height: 35px; }
-    .highlight-item p { font-size: 8px; }
-    
-    /* Destinations header text size */
-    .destinations-header-wrap > div {
-        font-size: 20px !important;
-        padding: 5px 10px !important;
-    }
-    
-    /* Itinerary Cards Adjustments */
-    .itinerary-header-wrap .itinerary-title {
-        font-size: 20px;
-    }
-    .day-card {
-        padding-left: 5px;
-    }
-    .day-number-col {
-        width: 40px;
-        margin-right: 15px;
-    }
-    .day-number {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    .temple-graphic {
-        width: 70px;
-        right: 5px;
-        opacity: 0.3; /* Fade out behind text if they overlap */
-    }
-    
-    /* Info Sections Adjustments */
-    .inclusions-box {
-        padding: 5px;
-        flex: 1.5;
-    }
-    .inclusions-header h3 {
-        font-size: 14px;
-    }
-    .reservation-box {
-        padding: 10px 5px 5px 5px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .reservation-inner {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 15px;
-    }
-    .reservation-title { 
-        width: 100%; 
-        font-size: 11px; 
-        margin-bottom: 4px; 
-        line-height: 1.2; 
-        text-align: center; 
-    }
-    .reservation-contact { gap: 5px; margin-bottom: 0; }
-    .reservation-icon { width: 18px; height: 18px; }
-    .reservation-icon svg { width: 10px; height: 10px; }
-    .reservation-text { font-size: 10px; }
-    
-    /* User specific requests for horizontal alignment and map */
-    .map-wrapper-box img { 
-        width: 70%; 
-        margin: 0 auto; 
-        display: block; 
-        content: url('images/map-2.png');
-    }
-    .inclusions-row {
-        flex-direction: row !important;
-        gap: 5px;
-        align-items: stretch !important;
-    }
-    .inclusions-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 5px;
-    }
-    .inclusion-item { align-items: flex-start; gap: 4px; }
-    .inclusion-icon { width: 14px; height: 14px; }
-    .inclusion-text { font-size: 7px; }
-    .inclusion-text span { font-size: 6px !important; }
+    /* ========================================= */
+    /* TABLET 768px FINE-TUNING                  */
+    /* ========================================= */
+    @media (max-width: 992px) {
+        .banner-left {
+            max-width: 310px !important;
+            padding: 12px 18px !important;
+        }
 
-    .travel-info-bar {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        justify-content: space-between;
-        align-items: stretch;
-        padding: 5px;
-        gap: 5px;
-    }
-    .info-header { display: flex; flex-direction: column; align-items: center; }
-    .info-header svg { width: 16px; height: 16px; margin-bottom: 3px; }
-    .info-block {
-        border-right: 1px solid rgba(255,255,255,0.1) !important;
-        border-bottom: none !important;
-        flex: 1 1 20%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        text-align: center;
-        padding: 5px !important;
-    }
-    .info-block:nth-child(4) {
-        border-right: none !important;
-    }
-    .info-title { font-size: 9px; margin-bottom: 3px; line-height: 1.2; text-align: center; }
-    .info-details { font-size: 8px; line-height: 1.2; text-align: center; }
-    .ideal-for-box {
-        width: 100%;
-        margin-top: 5px;
-        flex: 1 1 100%;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
-    .ideal-for-box svg { width: 24px; height: 24px; }
-    .ideal-for-content { display: flex; flex-direction: column; align-items: flex-start; }
-    .ideal-title { font-size: 11px; margin-bottom: 2px; text-align: left; }
-    .ideal-details { font-size: 10px; line-height: 1.4; text-align: left; }
-}
+        .logo-icon {
+            width: 28px !important;
+            height: 28px !important;
+        }
 
-@media (max-width: 480px) {
-    /* Tiny Phone Adjustments */
-    .banner-container {
-        height: 250px;
+        .logo-text h1 {
+            font-size: 20px !important;
+        }
+
+        .logo-text p {
+            font-size: 7.5px !important;
+        }
+
+        .blocky-main-title {
+            font-size: 42px !important;
+            line-height: 0.9 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .sub-title-row {
+            margin-bottom: 6px !important;
+            gap: 6px !important;
+            align-items: center !important;
+        }
+
+        .blocky-sub-title {
+            font-size: 26px !important;
+        }
+
+        .blocky-solid-banner {
+            font-size: 8.5px !important;
+            padding: 3px 6px !important;
+            letter-spacing: 1px !important;
+        }
+
+        .blessing-box {
+            padding: 8px 12px !important;
+            max-width: 280px !important;
+            margin-top: 14px !important;
+        }
+
+        .blessing-chant {
+            font-size: 10px !important;
+            margin-bottom: 3px !important;
+        }
+
+        .blessing-text {
+            font-size: 7.5px !important;
+            line-height: 1.3 !important;
+        }
+
+        .ganapathi-icon {
+            width: 45px !important;
+        }
+
+        /* Horizontal feature bar positioned at bottom right of temple image like Image 2 */
+        .horizontal-floating-bar {
+            position: absolute !important;
+            bottom: 12px !important;
+            right: 15px !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            width: auto !important;
+            justify-content: flex-end !important;
+            flex-wrap: nowrap !important;
+            gap: 4px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            z-index: 10 !important;
+        }
+
+        .floating-item {
+            position: relative !important;
+            height: 26px !important;
+            padding: 2px 6px 2px 2px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12) !important;
+            animation: none !important;
+            transform: none !important;
+            max-width: none !important;
+            width: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            flex-shrink: 0 !important;
+            background: #ffffff !important;
+            border-radius: 20px !important;
+        }
+
+        .floating-item:hover {
+            transform: none !important;
+        }
+
+        .floating-icon {
+            width: 20px !important;
+            height: 20px !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .custom-img-icon {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            border-radius: 50% !important;
+        }
+
+        .floating-label {
+            font-size: 7px !important;
+            opacity: 1 !important;
+            animation: none !important;
+            transform: none !important;
+            margin-left: 4px !important;
+            padding-right: 2px !important;
+            color: #12274b !important;
+            font-weight: 850 !important;
+            white-space: nowrap !important;
+        }
     }
-    .highlight-item {
-        flex: 1 1 100%;
-        margin-bottom: 10px;
+
+    /* ========================================= */
+    /* MOBILE RESPONSIVE TWEAKS (<= 576px ONLY)   */
+    /* ========================================= */
+    @media (max-width: 576px) {
+
+        /* Banner Adjustment */
+        .banner-container {
+            aspect-ratio: auto;
+            min-height: 280px;
+            padding-bottom: 15px;
+        }
+
+        .banner-bg {
+            background-image: url('images/banner-2.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-left {
+            max-width: 220px;
+            padding: 10px 15px;
+        }
+
+        /* Astroved logo upper and smaller */
+        .logo-icon {
+            width: 22px;
+            height: 22px;
+        }
+
+        .logo-text h1 {
+            font-size: 15px;
+        }
+
+        .logo-text p {
+            font-size: 6px;
+        }
+
+        /* Titles smaller & single line inside white space */
+        .blocky-main-title {
+            font-size: 26px;
+            white-space: nowrap;
+            margin-bottom: 2px;
+        }
+
+        .sub-title-row {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            margin-bottom: 5px;
+            gap: 3px;
+        }
+
+        .blocky-sub-title {
+            font-size: 20px;
+        }
+
+        .blocky-solid-banner {
+            font-size: 7px;
+            padding: 2px 5px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* Ganapathi Box completely inside white space */
+        .blessing-box {
+            padding: 5px 8px;
+            margin-top: 10px;
+            max-width: 195px;
+            width: 100%;
+            gap: 6px;
+        }
+
+        .blessing-chant {
+            font-size: 7.5px !important;
+            letter-spacing: -0.2px;
+            margin-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .blessing-text {
+            font-size: 6.5px;
+            line-height: 1.2;
+        }
+
+        .ganapathi-icon {
+            width: 28px;
+        }
+
+        /* Horizontal feature bar placed static below banner in a SINGLE ROW for mobile */
+        .horizontal-floating-bar {
+            position: relative !important;
+            bottom: auto !important;
+            right: auto !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            margin: 12px auto 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 5px !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-around !important;
+            flex-wrap: nowrap !important;
+            gap: 3px !important;
+            z-index: 10 !important;
+            overflow-x: auto !important;
+        }
+
+        .floating-item {
+            height: 26px !important;
+            padding: 2px 6px 2px 2px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08) !important;
+            transform: none !important;
+            animation: none !important;
+            max-width: none !important;
+            width: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            flex-shrink: 0 !important;
+        }
+
+        .floating-item:hover {
+            transform: none !important;
+        }
+
+        .floating-icon {
+            width: 20px !important;
+            height: 20px !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .custom-img-icon {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            border-radius: 50% !important;
+        }
+
+        .floating-label {
+            font-size: 7px !important;
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            margin-left: 3px !important;
+            padding-right: 0 !important;
+            color: #12274b !important;
+            font-weight: 850 !important;
+            white-space: nowrap !important;
+        }
+
+        /* Key Highlights Box size for mobile */
+        .highlights-box {
+            padding: 35px 15px 15px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .highlights-header-wrap {
+            font-size: 13px !important;
+            padding: 6px 18px !important;
+            top: -15px !important;
+        }
+
+        .highlights-grid {
+            flex-wrap: nowrap;
+            gap: 5px !important;
+            overflow-x: auto !important;
+        }
+
+        .highlight-item {
+            flex: 1 1 24%;
+            border: none !important;
+            padding-bottom: 5px;
+        }
+
+        .highlight-item img {
+            width: 35px !important;
+            height: 35px !important;
+            margin-bottom: 6px !important;
+        }
+
+        .highlight-item p {
+            font-size: 8px !important;
+        }
+
+        /* Divine Destinations: 1 image card per row on mobile */
+        .destinations-cards-wrapper {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 15px !important;
+        }
+
+        .new-dest-card {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .new-dest-card img {
+            height: 200px !important;
+            object-fit: cover !important;
+        }
+
+        .new-dest-name {
+            font-size: 16px !important;
+            padding: 10px !important;
+            letter-spacing: 1px !important;
+        }
+
+        /* Detailed Itinerary Cards: Day tab full horizontal row across top, content below */
+        .day-card {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            padding-left: 0 !important;
+            padding-bottom: 20px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .day-tab {
+            width: 100% !important;
+            height: auto !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            padding: 8px 15px !important;
+            border-radius: 8px !important;
+            margin-bottom: 12px !important;
+        }
+
+        .day-tab span:first-child {
+            font-size: 14px !important;
+            letter-spacing: 1.5px !important;
+        }
+
+        .day-tab span:last-child {
+            font-size: 20px !important;
+            line-height: 1 !important;
+            margin-top: 0 !important;
+        }
+
+        .day-content {
+            margin-left: 0 !important;
+            padding-right: 0 !important;
+            width: 100% !important;
+        }
+
+        .day-title {
+            font-size: 15px !important;
+            margin-bottom: 8px !important;
+            text-align: left !important;
+        }
+
+        .day-details {
+            font-size: 12px !important;
+            line-height: 1.4 !important;
+        }
+
+        .day-details p {
+            margin-bottom: 5px !important;
+        }
+
+        .temple-graphic {
+            display: none !important;
+        }
     }
-    .temple-graphic {
-        display: none; /* Hide images on tiny screens to avoid text overlap */
+
+    @media (max-width: 480px) {
+
+        /* Mobile 425px Specific Adjustments */
+        .banner-container {
+            min-height: auto !important;
+            height: auto !important;
+            aspect-ratio: auto !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .banner-bg {
+            background-image: url('images/banner-2.png') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .banner-left {
+            max-width: 215px !important;
+            padding: 8px 12px !important;
+        }
+
+        .blocky-main-title {
+            font-size: 21px !important;
+            white-space: normal !important;
+            margin-bottom: 2px !important;
+        }
+
+        .title-line-1 {
+            display: block !important;
+            font-size: 21px !important;
+            white-space: nowrap !important;
+            color: #d97706 !important;
+            font-weight: 850 !important;
+            line-height: 1 !important;
+            margin-bottom: 2px !important;
+        }
+
+        .title-line-2 {
+            display: block !important;
+            font-size: 21px !important;
+            color: #d97706 !important;
+            font-weight: 850 !important;
+            line-height: 1 !important;
+            margin-bottom: 4px !important;
+        }
+
+        .sub-title-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            margin-bottom: 5px !important;
+        }
+
+        .blocky-solid-banner {
+            font-size: 6.5px !important;
+            padding: 2px 4px !important;
+            white-space: nowrap !important;
+        }
+
+        .blocky-sub-title {
+            display: none !important;
+        }
+
+        /* Ganesha icon removed on mobile */
+        .blessing-icon {
+            display: none !important;
+        }
+
+        .blessing-box {
+            max-width: 140px !important;
+            padding: 5px 8px !important;
+            margin-top: 6px !important;
+            width: 100% !important;
+        }
+
+        .blessing-content {
+            width: 100% !important;
+        }
+
+        .blessing-chant {
+            font-size: 8px !important;
+            margin-bottom: 2px !important;
+            white-space: nowrap !important;
+        }
+
+        .blessing-text {
+            font-size: 6.5px !important;
+            line-height: 1.25 !important;
+        }
+
+        /* Static feature bar box 100% outside the banner image */
+        .horizontal-floating-bar {
+            position: relative !important;
+            top: auto !important;
+            bottom: auto !important;
+            right: auto !important;
+            left: auto !important;
+            transform: none !important;
+            margin: 20px auto 15px !important;
+            width: calc(100% - 20px) !important;
+            max-width: 100% !important;
+            padding: 8px 6px !important;
+            background: #f8fafc !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-around !important;
+            flex-wrap: nowrap !important;
+            gap: 4px !important;
+            z-index: 10 !important;
+            overflow-x: auto !important;
+        }
+
+        .floating-item {
+            height: 25px !important;
+            padding: 2px 5px 2px 2px !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+            transform: none !important;
+            animation: none !important;
+            max-width: none !important;
+            width: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            flex-shrink: 0 !important;
+            background: #ffffff !important;
+            border-radius: 15px !important;
+        }
+
+        .floating-item:hover {
+            transform: none !important;
+        }
+
+        .floating-icon {
+            width: 18px !important;
+            height: 18px !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .custom-img-icon {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            border-radius: 50% !important;
+        }
+
+        .floating-label {
+            font-size: 6.5px !important;
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            margin-left: 3px !important;
+            padding-right: 0 !important;
+            color: #12274b !important;
+            font-weight: 850 !important;
+            white-space: nowrap !important;
+        }
+
+        .highlight-item {
+            flex: 1 1 100%;
+            margin-bottom: 10px;
+        }
+
+        .temple-graphic {
+            display: none !important;
+        }
+
+        /* Divine Destinations Heading in One Line */
+        .destinations-header-wrap>div {
+            font-size: 16px !important;
+            white-space: nowrap !important;
+            padding: 4px 8px !important;
+        }
+
+        .destinations-header {
+            gap: 6px !important;
+        }
+
+        /* Detailed Itinerary Heading in One Line */
+        .itinerary-header-wrap .itinerary-title {
+            font-size: 16px !important;
+            white-space: nowrap !important;
+        }
+
+        /* Reduce Map Height */
+        .map-wrapper-box img {
+            max-height: 170px !important;
+            object-fit: contain !important;
+            width: auto !important;
+            margin: 0 auto !important;
+            display: block !important;
+        }
     }
-}

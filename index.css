@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+}
+
+.banner-container {
+    width: 100%;
+    aspect-ratio: 1977 / 760;
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Background image */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/banner-1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Left white block */
+.banner-left {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    z-index: 2;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+/* Logo Area */
+.logo-area {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.logo-text h1 {
+    color: #3b5bdb;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo-text p {
+    color: #495057;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+
+
+/* Rugged Title Area */
+.title-area.rugged {
+    position: relative;
+    z-index: 2;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-6deg);
+}
+
+.brush-badge {
+    padding: 10px 40px;
+    color: #fff;
+    font-family: 'Caveat Brush', 'Permanent Marker', cursive;
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Organic border radius */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.brush-badge.orange {
+    background-color: #c94b1a;
+    margin-bottom: -5px;
+    z-index: 3;
+    transform: rotate(3deg) skewX(-15deg);
+}
+
+.brush-badge.green {
+    background-color: #12351d;
+    margin-top: 5px;
+    font-size: 20px;
+    z-index: 3;
+    white-space: nowrap;
+    transform: rotate(-1deg) skewX(-10deg);
+}
+
+.brush-badge.orange span {
+    display: block;
+    transform: skewX(15deg); /* Un-skew the text */
+}
+
+.brush-badge.green span {
+    display: block;
+    transform: skewX(10deg); /* Un-skew the text */
+}
+
+.main-title.rugged-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 72px;
+    color: #12351d;
+    margin: 0;
+    line-height: 1.1;
+    -webkit-text-stroke: 3px #ffffff;
+    text-shadow: 
+        0px 0px 0px #ffffff,
+        3px 3px 0px #ffffff,
+        6px 6px 15px rgba(0,0,0,0.4);
+    text-align: center;
+    z-index: 2;
+}
+
+.rugged-cursive {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-family: 'Great Vibes', cursive;
+    color: #12351d;
+    font-size: 38px;
+    line-height: 1.1;
+    transform: rotate(-5deg);
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Right Text */
+.banner-right {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.devotion-text {
+    position: absolute;
+    top: 55px;
+    right: 55px;
+    text-align: center;
+}
+
+.devotion-text p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #1a202c;
+    font-weight: 600;
+    text-shadow: 0 1px 15px rgba(255, 255, 255, 1);
+    margin-bottom: 5px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.separator .line {
+    width: 50px;
+    height: 1px;
+    background-color: #1a202c;
+}
+
+/* Horizontal Floating Bar */
+.horizontal-floating-bar {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 10;
+}
+
+.floating-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50px;
+    height: 50px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 50px;
+    animation: expandPill 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    border: 1px solid rgba(18, 39, 75, 0.05);
+}
+
+.floating-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes expandPill {
+    0% {
+        max-width: 50px;
+        padding-right: 5px;
+    }
+
+    100% {
+        max-width: 200px;
+        padding-right: 25px;
+    }
+}
+
+.floating-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+}
+
+.custom-img-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.floating-label {
+    font-size: 14px;
+    font-weight: 950;
+    color: #12274b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    margin-left: 12px;
+    transform: translateX(-15px);
+    animation: fadeText 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeText {
+    0% {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Staggered delays */
+.floating-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.floating-item:nth-child(1) .floating-label {
+    animation-delay: 0.4s;
+}
+
+.floating-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.floating-item:nth-child(2) .floating-label {
+    animation-delay: 0.6s;
+}
+
+.floating-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.floating-item:nth-child(3) .floating-label {
+    animation-delay: 0.8s;
+}
+
+.floating-item:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.floating-item:nth-child(4) .floating-label {
+    animation-delay: 1.0s;
+}
+
+.floating-item:nth-child(5) {
+    animation-delay: 0.9s;
+}
+
+.floating-item:nth-child(5) .floating-label {
+    animation-delay: 1.2s;
+}

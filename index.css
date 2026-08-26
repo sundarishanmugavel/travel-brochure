@@ -14,8 +14,8 @@ body {
 .banner-section {
     position: relative;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
 }
 
 .banner-container {
@@ -49,10 +49,10 @@ body {
     max-width: 520px;
     height: 100%;
     z-index: 2;
-    padding: 40px 60px;
+    padding: 30px 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 
@@ -61,12 +61,13 @@ body {
 
 /* Logo Area */
 .logo-area {
-    position: absolute;
-    top: 40px;
-    left: 60px;
+    position: relative;
+    top: auto;
+    left: auto;
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 15px;
 }
 
 .logo-icon {
@@ -95,7 +96,7 @@ body {
 .title-area.blocky {
     position: relative;
     z-index: 2;
-    margin-top: 25px;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

@@ -1146,13 +1146,17 @@ body {
 /* Reservation Box */
 .reservation-box {
     flex: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
     background: linear-gradient(135deg, #6a0b12, #450409);
     border: 1px solid #c9933d;
     border-radius: 16px;
-    padding: 30px 25px;
+    padding: 22px 25px;
     box-shadow: 0 15px 35px rgba(106, 11, 18, 0.3);
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -1171,10 +1175,12 @@ body {
 }
 
 .reservation-inner {
+    width: 100%;
     border: none;
     padding: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     position: relative;
     z-index: 1;
@@ -1187,14 +1193,16 @@ body {
     font-size: 14px;
     text-align: center;
     letter-spacing: 0.5px;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 
 .reservation-contact {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
+    width: fit-content;
 }
 
 .reservation-contact:last-child {
@@ -1234,21 +1242,97 @@ body {
     }
 
     .inclusions-grid {
-        grid-template-columns: 1fr;
+        display: grid !important;
+        grid-auto-flow: column !important;
+        grid-template-rows: repeat(4, auto) !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px 30px !important;
+    }
+
+    .inclusions-grid > div:empty {
+        display: none !important;
+    }
+
+    /* Map image replacement for 768px / 992px tablet screens */
+    .map-wrapper-box img.map-default {
+        display: none !important;
+    }
+
+    .map-wrapper-box img.map-mobile {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 auto !important;
     }
 
     .travel-info-bar {
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
+        padding: 20px 15px !important;
+        gap: 15px 10px !important;
     }
 
-    .info-block {
-        border-right: none;
-        border-bottom: 1px solid rgba(201, 147, 61, 0.3);
-        padding: 15px 10px;
+    .travel-info-bar .info-block {
+        flex: 1 1 calc(25% - 10px) !important;
+        min-width: 0 !important;
+        border-right: 1px solid rgba(201, 147, 61, 0.3) !important;
+        border-bottom: none !important;
+        padding: 5px 8px !important;
     }
 
-    .info-block.no-border {
-        border-bottom: none;
+    .travel-info-bar .info-block.no-border {
+        border-right: none !important;
+        border-bottom: none !important;
+    }
+
+    .travel-info-bar .info-header svg {
+        width: 18px !important;
+        height: 18px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .travel-info-bar .info-title {
+        font-size: 11px !important;
+        letter-spacing: 0.3px !important;
+    }
+
+    .travel-info-bar .info-details {
+        font-size: 10px !important;
+        line-height: 1.35 !important;
+    }
+
+    .travel-info-bar .ideal-for-box {
+        flex: 0 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        max-width: max-content !important;
+        margin: 12px auto 0 !important;
+        padding: 10px 24px !important;
+        align-self: center !important;
+        text-align: center !important;
+    }
+
+    .travel-info-bar .ideal-for-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .travel-info-bar .ideal-title {
+        text-align: center !important;
+    }
+
+    .travel-info-bar .ideal-details {
+        text-align: center !important;
+        white-space: nowrap !important;
     }
 }
 
@@ -1598,6 +1682,11 @@ body {
     /* MOBILE RESPONSIVE TWEAKS (<= 576px ONLY)   */
     /* ========================================= */
     @media (max-width: 576px) {
+        .inclusions-grid {
+            grid-auto-flow: row !important;
+            grid-template-rows: none !important;
+            grid-template-columns: 1fr !important;
+        }
 
         /* Banner Adjustment */
         .banner-container {

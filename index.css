@@ -455,7 +455,7 @@ body {
 
 .divider {
     width: 1px;
-    background-color: #e8e0d5;
+
     margin: 10px 0;
 }
 
@@ -922,6 +922,14 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+.map-mobile {
+    display: none !important;
+}
+
+.map-default {
+    display: block !important;
+}
+
 /* ========================================= */
 /* ADDITIONAL INFO SECTION                   */
 /* ========================================= */
@@ -1070,6 +1078,26 @@ body {
     line-height: 1.6;
 }
 
+.temple-timings-details .timing-row {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+}
+
+.temple-timings-details .timing-label {
+    font-weight: 700;
+}
+
+.temple-timings-details .timing-value {
+    white-space: nowrap;
+}
+
+.temple-timings-details .timing-note {
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
 .ideal-for-box {
     flex: 1.2;
     background: linear-gradient(135deg, #eabf54, #d4af37);
@@ -1110,8 +1138,9 @@ body {
 }
 
 .ideal-details span.divider {
-    color: rgba(17, 42, 70, 0.3);
+    color: #112a46;
     margin: 0 5px;
+    font-weight: bold;
 }
 
 /* Reservation Box */
@@ -1229,6 +1258,67 @@ body {
 /* TABLET RESPONSIVE TWEAKS (769px - 1200px) */
 /* ========================================= */
 @media (max-width: 1200px) {
+    /* Strictly for 1024px width and 860px height screen size */
+    @media screen and (max-width: 1024px) {
+        /* Align IDEAL FOR card and SVG icon cleanly like Image 2 */
+        .ideal-for-box {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+        }
+
+        .ideal-for-box svg {
+            display: none !important;
+        }
+
+        .ideal-for-content {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .ideal-for-content .ideal-title {
+            font-size: 11.5px !important;
+            font-weight: 900 !important;
+            color: #112a46 !important;
+            margin-bottom: 3px !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .ideal-for-content .ideal-details {
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            color: #1a3c5a !important;
+            white-space: normal !important;
+            max-width: 210px !important;
+            line-height: 1.4 !important;
+        }
+
+        .ideal-for-content .ideal-details span.divider {
+            color: #112a46 !important;
+            margin: 0 3px !important;
+            font-weight: bold !important;
+        }
+
+        /* TEMPLE TIMINGS matching Image 2: morning/evening in label col, timings in value col */
+        .temple-timings-details .timing-row {
+            display: grid !important;
+            grid-template-columns: auto 1fr !important;
+            gap: 2px 8px !important;
+            align-items: baseline !important;
+        }
+
+        .temple-timings-details .timing-label {
+            font-weight: 700 !important;
+        }
+
+        .temple-timings-details .timing-value {
+            white-space: nowrap !important;
+        }
+    }
+
     .banner-container {
         aspect-ratio: 1977 / 780;
         min-height: auto;
@@ -1859,13 +1949,13 @@ body {
             right: auto !important;
             left: auto !important;
             transform: none !important;
-            margin: 20px auto 15px !important;
+            margin: 5px auto 10px !important;
             width: calc(100% - 20px) !important;
             max-width: 100% !important;
             padding: 8px 6px !important;
-            background: #f8fafc !important;
+            background: transparent !important;
             border-radius: 12px !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            box-shadow: none !important;
             display: flex !important;
             flex-direction: row !important;
             justify-content: space-around !important;
@@ -1873,6 +1963,122 @@ body {
             gap: 4px !important;
             z-index: 10 !important;
             overflow-x: auto !important;
+        }
+
+        .decorative-lace-divider {
+            margin-top: 15px !important;
+        }
+
+        .map-wrapper-box img.map-default {
+            display: none !important;
+        }
+
+        .map-wrapper-box img.map-mobile {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+
+        /* Strictly for 425 width and 645 height screen size */
+        @media screen and (max-width: 425px) and (max-height: 645px) {
+            .horizontal-floating-bar {
+                background: transparent !important;
+                background-color: transparent !important;
+                box-shadow: none !important;
+                margin-top: 4px !important;
+            }
+
+            .decorative-lace-divider {
+                margin-top: 15px !important;
+            }
+
+            .map-wrapper-box img.map-default {
+                display: none !important;
+            }
+
+            .map-wrapper-box img.map-mobile {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                max-height: none !important;
+            }
+
+            /* Travel Logistics Bar Grid Layout strictly for 425width 645height */
+            .travel-info-bar {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 12px 10px !important;
+                padding: 16px 12px !important;
+            }
+
+            .travel-info-bar .info-block {
+                width: 100% !important;
+                border-right: none !important;
+                border-bottom: none !important;
+                padding: 6px 8px !important;
+            }
+
+            .travel-info-bar .info-block:nth-child(1) {
+                border-right: 1px solid rgba(201, 147, 61, 0.3) !important;
+                border-bottom: 1px solid rgba(201, 147, 61, 0.3) !important;
+                padding-bottom: 10px !important;
+            }
+
+            .travel-info-bar .info-block:nth-child(2) {
+                border-bottom: 1px solid rgba(201, 147, 61, 0.3) !important;
+                padding-bottom: 10px !important;
+            }
+
+            .travel-info-bar .info-block:nth-child(3) {
+                border-right: 1px solid rgba(201, 147, 61, 0.3) !important;
+            }
+
+            .travel-info-bar .info-header svg {
+                width: 18px !important;
+                height: 18px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .travel-info-bar .info-title {
+                font-size: 11px !important;
+                letter-spacing: 0.3px !important;
+            }
+
+            .travel-info-bar .info-details {
+                font-size: 10px !important;
+                line-height: 1.35 !important;
+            }
+
+            .travel-info-bar .ideal-for-box {
+                grid-column: 1 / -1 !important;
+                width: 100% !important;
+                margin-top: 4px !important;
+                padding: 10px 12px !important;
+            }
+
+            .travel-info-bar .ideal-for-box svg {
+                width: 22px !important;
+                height: 22px !important;
+            }
+
+            .travel-info-bar .ideal-title {
+                font-size: 11.5px !important;
+            }
+
+            .travel-info-bar .ideal-details {
+                font-size: 9.5px !important;
+                line-height: 1.35 !important;
+                white-space: nowrap !important;
+            }
+
+            .travel-info-bar .ideal-details span.divider {
+                color: #112a46 !important;
+                margin: 0 3px !important;
+                font-weight: bold !important;
+            }
         }
 
         .floating-item {
@@ -1946,12 +2152,92 @@ body {
             white-space: nowrap !important;
         }
 
-        /* Reduce Map Height */
-        .map-wrapper-box img {
-            max-height: 170px !important;
-            object-fit: contain !important;
-            width: auto !important;
-            margin: 0 auto !important;
+        /* Map styling for mobile (425width 645height) */
+        .map-wrapper-box img.map-default {
+            display: none !important;
+        }
+
+        .map-wrapper-box img.map-mobile {
             display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+            margin: 0 auto !important;
+        }
+
+        /* Travel Logistics Bar Grid Layout for Mobile (2 cols, 2 cols, 1 col) */
+        .travel-info-bar {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px 10px !important;
+            padding: 16px 12px !important;
+        }
+
+        .travel-info-bar .info-block {
+            width: 100% !important;
+            border-right: none !important;
+            border-bottom: none !important;
+            padding: 6px 8px !important;
+        }
+
+        .travel-info-bar .info-block:nth-child(1) {
+            border-right: 1px solid rgba(201, 147, 61, 0.3) !important;
+            border-bottom: 1px solid rgba(201, 147, 61, 0.3) !important;
+            padding-bottom: 10px !important;
+        }
+
+        .travel-info-bar .info-block:nth-child(2) {
+            border-bottom: 1px solid rgba(201, 147, 61, 0.3) !important;
+            padding-bottom: 10px !important;
+        }
+
+        .travel-info-bar .info-block:nth-child(3) {
+            border-right: 1px solid rgba(201, 147, 61, 0.3) !important;
+        }
+
+        .travel-info-bar .info-header svg {
+            width: 18px !important;
+            height: 18px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .travel-info-bar .info-title {
+            font-size: 11px !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        .travel-info-bar .info-details {
+            font-size: 10px !important;
+            line-height: 1.35 !important;
+        }
+
+        .travel-info-bar .ideal-for-box {
+            grid-column: 1 / -1 !important;
+            width: 100% !important;
+            margin-top: 4px !important;
+            padding: 10px 12px !important;
+        }
+
+        .travel-info-bar .ideal-for-box svg {
+            width: 22px !important;
+            height: 22px !important;
+        }
+
+        .travel-info-bar .ideal-title {
+            font-size: 11.5px !important;
+        }
+
+        .travel-info-bar .ideal-details {
+            font-size: 9.5px !important;
+            line-height: 1.35 !important;
+            white-space: nowrap !important;
+        }
+
+        .travel-info-bar .ideal-details span.divider {
+            color: #112a46 !important;
+            margin: 0 3px !important;
+            font-weight: bold !important;
         }
     }
+}

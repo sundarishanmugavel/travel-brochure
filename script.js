@@ -77,38 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Modal Accordion Tabs for Days (Days 1 to 4)
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const accordionItem = header.parentElement;
-            const isAlreadyActive = accordionItem.classList.contains('active');
+    // 4. Modal Tab Switcher Controls (Day 1 - Day 4)
+    const tabBtns = document.querySelectorAll('.modal-tab-btn');
+    const tabPanes = document.querySelectorAll('.modal-tab-pane');
 
-            // Close all items
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                item.classList.remove('active');
-            });
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTab = btn.getAttribute('data-tab');
 
-            // Toggle clicked item
-            if (!isAlreadyActive) {
-                accordionItem.classList.add('active');
-            }
-        });
-    });
+            // Remove active class from all buttons & panes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
 
-    // Side Itinerary Accordion Tabs
-    const timelineAccHeaders = document.querySelectorAll('.timeline-acc-header');
-    timelineAccHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const isAlreadyActive = item.classList.contains('active');
-
-            document.querySelectorAll('.timeline-acc-item').forEach(acc => {
-                acc.classList.remove('active');
-            });
-
-            if (!isAlreadyActive) {
-                item.classList.add('active');
+            // Set active class on clicked button and matching pane
+            btn.classList.add('active');
+            const activePane = document.getElementById(targetTab);
+            if (activePane) {
+                activePane.classList.add('active');
             }
         });
     });
